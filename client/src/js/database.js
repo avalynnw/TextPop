@@ -1,7 +1,6 @@
 import { openDB } from 'idb';
 
 const initdb = async () => {
-  console.log("FLAG");
   openDB('jate', 1, {
     upgrade(db) {
       if (db.objectStoreNames.contains('jate')) {
@@ -16,25 +15,18 @@ const initdb = async () => {
 
   
 
-
-
-
-
-
 // TODO: Add logic to a method that accepts some content and adds it to the database
 // export const putDb = async (content) => console.error('putDb not implemented');
-export const putDb = async (id, content) => {
+export const putDb = async (content) => {
   console.log('PUT to the database');
-  const todosDb = await openDB('jate', 1);
-  const tx = todosDb.transaction('jate', 'readwrite');
+  const textDb = await openDB('jate', 1);
+  const tx = textDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
-  const request = store.put({ id: id, todo: content });
+  // TODO: this line needs to be changed to something
+  const request = store.put({ todo: content });
   const result = await request;
   console.log('data saved to the database', result);
 };
-
-
-
 
 
 // TODO: Add logic for a method that gets all the content from the database
