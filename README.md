@@ -34,7 +34,7 @@ and then you will be able to use the program at the URL:
 
     http://localhost:3000
 
-![Screenshot of the Herooku application](./assets/application.png)
+![Screenshot of the Heroku application](./Assets/application.png)
 
 ### [Deployed Heroku Application](https://textpop.herokuapp.com/)
 
