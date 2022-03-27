@@ -36,7 +36,7 @@ and then you will be able to use the program at the URL:
 
 ![Screenshot of the Heroku application](./Assets/application.png)
 
-### [Deployed Heroku Application](https://textpop.herokuapp.com/)
+# [Deployed Heroku Application](https://textpop.herokuapp.com/)
 
 ## Contributing
 
