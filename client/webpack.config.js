@@ -29,7 +29,7 @@ module.exports = () => {
       new MiniCssExtractPlugin(),
       new WorkboxPlugin.GenerateSW({
         // Do not precache images
-        // exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+        include: [/\.(?:png|jpg|jpeg|svg)$/],
   
         // Define runtime caching rules.
         runtimeCaching: [{
