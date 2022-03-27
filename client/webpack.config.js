@@ -22,7 +22,7 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
 
-    // TODO: Add and configure workbox plugins for a service worker and manifest file.
+    // add and configure workbox plugins for a service worker and manifest file.
     plugins: [
       // webpack plugin which generates our html file and injects the bundles. 
       new HtmlWebpackPlugin({
