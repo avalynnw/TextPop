@@ -3,7 +3,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = () => {
@@ -26,10 +26,10 @@ module.exports = () => {
         title: 'TextPop',
       }),
 
-      new MiniCssExtractPlugin(),
+      // new MiniCssExtractPlugin(),
       new WorkboxPlugin.GenerateSW({
         // Do not precache images
-        include: [/\.(?:png|jpg|jpeg|svg)$/],
+        // exclude: [/\.(?:png|jpg|jpeg|svg)$/],
   
         // Define runtime caching rules.
         runtimeCaching: [{
@@ -87,10 +87,10 @@ module.exports = () => {
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
         },
-        {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: 'asset/resource',
-        },
+        // {
+        //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        //   type: 'asset/resource',
+        // },
         {
           test: /\.m?js$/,
           exclude: /node_modules/,
