@@ -14,7 +14,7 @@ module.exports = () => {
       install: './src/js/install.js',
       
       // this might be wrong
-      editor: './src/js/editor.js',
+      // editor: './src/js/editor.js',
 
     },
     output: {
