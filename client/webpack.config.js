@@ -12,10 +12,6 @@ module.exports = () => {
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js',
-      
-      // this might be wrong
-      // editor: './src/js/editor.js',
-
     },
     output: {
       filename: '[name].bundle.js',
@@ -31,7 +27,29 @@ module.exports = () => {
       }),
 
       new MiniCssExtractPlugin(),
-      new WorkboxPlugin.GenerateSW(),
+      new WorkboxPlugin.GenerateSW({
+        // Do not precache images
+        // exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+  
+        // Define runtime caching rules.
+        runtimeCaching: [{
+          // Match any request that ends with .png, .jpg, .jpeg or .svg.
+          urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+  
+          // Apply a cache-first strategy.
+          handler: 'CacheFirst',
+  
+          options: {
+            // Use a custom cache name.
+            cacheName: 'images',
+  
+            // Only cache 2 images.
+            expiration: {
+              maxEntries: 2,
+            },
+          },
+        }],
+      }),
 
       // injects the custom service worker
       new InjectManifest({
@@ -68,6 +86,10 @@ module.exports = () => {
         {
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
         },
         {
           test: /\.m?js$/,
