@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
-const { InjectManifest } = require('workbox-webpack-plugin');
+// const { InjectManifest } = require('workbox-webpack-plugin');
 
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
@@ -28,10 +28,7 @@ module.exports = () => {
 
       // new MiniCssExtractPlugin(),
       new WorkboxPlugin.GenerateSW({
-        // Do not precache images
-        // exclude: [/\.(?:png|jpg|jpeg|svg)$/],
-  
-        // swSrc: './src-sw.js',
+
         swDest: 'src-sw.js',
 
         // Define runtime caching rules.
@@ -46,7 +43,7 @@ module.exports = () => {
             // Use a custom cache name.
             cacheName: 'images',
   
-            // Only cache 2 images.
+            // cache 6 images only.
             expiration: {
               maxEntries: 6,
             },

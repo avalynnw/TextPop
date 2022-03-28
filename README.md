@@ -42,7 +42,7 @@ and then you will be able to use the program at the URL:
 
 Collaborators: Avalynn Helgrave, https://github.com/avalynnw
 
-Third-Party Assets: Modules: express, mongoose, nodemon
+Third-Party Assets: Modules: express, webpack, babel
 
 
 ## License
