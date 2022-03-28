@@ -31,6 +31,9 @@ module.exports = () => {
         // Do not precache images
         // exclude: [/\.(?:png|jpg|jpeg|svg)$/],
   
+        // swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
+
         // Define runtime caching rules.
         runtimeCaching: [{
           // Match any request that ends with .png, .jpg, .jpeg or .svg.
@@ -45,17 +48,17 @@ module.exports = () => {
   
             // Only cache 2 images.
             expiration: {
-              maxEntries: 2,
+              maxEntries: 6,
             },
           },
         }],
       }),
 
       // injects the custom service worker
-      new InjectManifest({
-        swSrc: './src-sw.js',
-        swDest: 'src-sw.js',
-      }),
+      // new InjectManifest({
+        // swSrc: './src-sw.js',
+        // swDest: 'src-sw.js',
+      // }),
 
       // creates a manifest.json file.
       new WebpackPwaManifest({
